@@ -6,6 +6,12 @@ error_reporting(-1);
 $row_num = 0;
 
 ini_set('auto_detect_line_endings', TRUE);
+
+// Load column headings
+
+
+
+// Load data
 if( ($handle = fopen("csv/hd2013.csv", "r")) !== FALSE ) {
   while( ($row = fgetcsv($handle, 1000, ",")) != FALSE) {
     if( $row_num == 0 ) {
@@ -21,7 +27,7 @@ if( ($handle = fopen("csv/hd2013.csv", "r")) !== FALSE ) {
 } // end if 
 
 foreach($records as $record) {
-  echo $record['INSTNM'] . "<br>";
+  echo '<a href="index.php?school=' . $record['INSTNM'] . '">' . $record['INSTNM'] . '</a>' . '<br>';
 }
 
 ?>
