@@ -60,26 +60,13 @@ foreach($records as $record) {
   echo '<a href="index.php?school=' . $record['Institution (entity) name'] . '">' . $record['Institution (entity) name'] . '</a>' . '<br>';
 }
 
-if($_GET['school']) {
-  $result = $records[$_GET['school']];
+$query=$_GET['school'];
 
-  echo '<table>';
-  echo "<tr>";
-  foreach($nice_column_heading as $nice_column) {
-    echo "<th>" . $nice_column . "</th>";
-  }
-  echo "</tr>";
-
-  echo "<tr>";
-  foreach( $result as $key => $value ) {
-    echo "<td>" . $value . "</td>";
-  }
-  echo "</tr>";
-  echo "</table>";
+if( $query ) {
+  $result = $records[$query];
+  actions::displayRecord( $result );
 }
  
-
-
 ?>
 
 </body>
