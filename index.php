@@ -8,6 +8,8 @@
 <body>
 
 <?php
+include 'lib/php/class.php';
+
 ini_set('display_startup_erros',1);
 ini_set('display_errors',1);
 error_reporting(-1);
@@ -17,7 +19,9 @@ $discard_heading = TRUE;
 ini_set('auto_detect_line_endings', TRUE);
 
 // Load column headings
-if( ($handle = fopen("csv/hd2013names.csv", "r")) !== FALSE ) {
+//if( ($handle = fopen("csv/hd2013names.csv", "r")) !== FALSE ) {
+  
+if( $handle = actions::openCSV("csv/hd2013names.csv") ) {
   while( ($row = fgetcsv($handle, 1000, ",")) != FALSE) {
     if( $get_heading ) {
       if( $discard_heading ) {
@@ -33,8 +37,6 @@ if( ($handle = fopen("csv/hd2013names.csv", "r")) !== FALSE ) {
   } // end while
   fclose( $handle );
 } // end if
-
-print_r($nice_column_heading);
 
 $get_heading = TRUE;
 $discard_heading = TRUE;
@@ -60,7 +62,6 @@ foreach($records as $record) {
 
 if($_GET['school']) {
   $result = $records[$_GET['school']];
-  //print_r($records[$_GET['school']]);
 
   echo '<table>';
   echo "<tr>";
