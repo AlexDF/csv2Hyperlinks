@@ -1,6 +1,17 @@
+html{
+  padding-left:20px;
+}
+
+a,th,td,h1,h2,.back-btn{
+  font-family:Helvetica, Arial, sans-serif;
+}
+
+#recordTitle{
+  color:#444;
+}
+
 th,td{
   font-size:85%;
-  font-family:Helvetica, Arial, sans-serif;
   text-align:left;
 }
 
@@ -9,13 +20,17 @@ tr:nth-child(odd){
 }
 
 .back-btn{
+  margin-bottom:30px;
   height:40px;
   width:120px;
-  font:130% Helvetica, Arial, sans-serif;
+  font-size:130%;
   color:#000;
   background-color:#54F759;
   text-align:center;
   line-height:40px;
+}
+a{
+  outline:0;
 }
 
 .back-btn-link{

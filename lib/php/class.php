@@ -7,6 +7,7 @@ class csv {
   }
 
  public static function get($option, $filepath, $column) {
+    ini_set('auto_detect_line_endings', TRUE);
     if( $handle = self::open($filepath) ) {
       while( ($row = fgetcsv($handle, 1000, ",")) != FALSE) {
         if( $GLOBALS['get_heading'] ) {
@@ -33,6 +34,7 @@ class csv {
 
 class actions {
   public static function displayRecord($record) { 
+    echo '<h2 id="recordTitle">' . $_GET['school'] . '</h2>';
     echo '<a class="back-btn-link" href="index.php"><div class="back-btn">Back</div></a>';
     echo "<table>";
       foreach( $record as $key => $value ) {
