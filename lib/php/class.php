@@ -32,20 +32,17 @@ class csv {
 } // end class csv
 
 class actions {
-  public static function displayRecord($record) {
-    echo '<table>';
-    echo "<tr>";
-    foreach( $record as $key => $value ) {
-      echo "<th>" . $key . "</th>";
+  public static function displayRecord($record) { 
+    echo '<a class="back-btn-link" href="index.php"><div class="back-btn">Back</div></a>';
+    echo "<table>";
+      foreach( $record as $key => $value ) {
+        echo "<tr>";
+        echo "<th>" . $key . "</th>";
+        echo "<td>" . $value . "</td>";
+        echo "</tr>";
+      }
+      echo "</table>";
     }
-    echo "</tr>";
-    echo "<tr>";
-    foreach( $record as $key => $value ) {
-      echo "<td>" . $value . "</td>";
-    }
-    echo "</tr>";
-    echo "</table>";
-  }
 
 } // end actions class
 

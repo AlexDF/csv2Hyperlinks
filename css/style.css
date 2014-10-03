@@ -1,3 +1,23 @@
-td{
+th,td{
+  font-size:85%;
+  font-family:Helvetica, Arial, sans-serif;
+  text-align:left;
+}
+
+tr:nth-child(odd){
+  background-color:#DDD;
+}
+
+.back-btn{
+  height:40px;
+  width:120px;
+  font:130% Helvetica, Arial, sans-serif;
+  color:#000;
+  background-color:#54F759;
   text-align:center;
+  line-height:40px;
+}
+
+.back-btn-link{
+  text-decoration:none;
 }

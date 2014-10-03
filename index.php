@@ -57,13 +57,13 @@ if( ($handle = csv::open("csv/hd2013.csv") ) !== FALSE ) {
 } // end if 
 */
 csv::get("records", "csv/hd2013.csv");
-foreach($records as $record) {
-  echo '<a href="index.php?school=' . $record['Institution (entity) name'] . '">' . $record['Institution (entity) name'] . '</a>' . '<br>';
-}
-
 $query=$_GET['school'];
 
-if( $query ) {
+if( !$query ){
+  foreach($records as $record) {
+    echo '<a href="index.php?school=' . $record['Institution (entity) name'] . '">' . $record['Institution (entity) name'] . '</a>' . '<br>';
+  }
+} else {
   $result = $records[$query];
   actions::displayRecord( $result );
 }
