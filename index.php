@@ -10,10 +10,6 @@
 <?php
 include 'lib/php/class.php';
 
-/*ini_set('display_startup_erros',1);
-ini_set('display_errors',1);
-error_reporting(-1);*/
-
 $get_heading = TRUE;
 $discard_heading = TRUE;
 //ini_set('auto_detect_line_endings', TRUE);
@@ -29,9 +25,7 @@ csv::get("records", "csv/hd2013.csv");
 $query=$_GET['school'];
 
 if( !$query ){
-  foreach($records as $record) {
-    echo '<a href="index.php?school=' . $record['Institution (entity) name'] . '">' . $record['Institution (entity) name'] . '</a>' . '<br>';
-  }
+  actions::printLinks();
 } else {
   $result = $records[$query];
   actions::displayRecord( $result );

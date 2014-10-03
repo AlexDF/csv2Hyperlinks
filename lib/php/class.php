@@ -6,7 +6,7 @@ class csv {
     return fopen($path, "r");
   }
 
- public static function get($option, $filepath, $column) {
+  public static function get($option, $filepath, $column) {
     ini_set('auto_detect_line_endings', TRUE);
     if( $handle = self::open($filepath) ) {
       while( ($row = fgetcsv($handle, 1000, ",")) != FALSE) {
@@ -28,11 +28,17 @@ class csv {
       fclose( $handle );
     } // end if
   }  // end getRecords
-
-
 } // end class csv
 
+
 class actions {
+  public static function printLinks() {
+    foreach($GLOBALS[records] as $record) {
+      echo '<a href="index.php?school=' . $record['Institution (entity) name'] . '">' . $record['Institution (entity) name'] . '</a>' . '<br>';
+    }
+  }
+
+
   public static function displayRecord($record) { 
     echo '<h2 id="recordTitle">' . $_GET['school'] . '</h2>';
     echo '<a class="back-btn-link" href="index.php"><div class="back-btn">Back</div></a>';
@@ -46,10 +52,7 @@ class actions {
       echo "</table>";
     }
 
+
 } // end actions class
-
-
-
-
 
 ?>
